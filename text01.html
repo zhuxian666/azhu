@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // function Person(name, age) {
+        //     this.name = name
+        //     this.age = age
+        // }
+        // Person.prototype.sayHi = function () {
+        //     console.log('你好，我叫' + this.name)
+        // }
+
+        // let person = new Person('frank', 18)
+        // person.name === 'frank' // true
+        // person.age === 18 // true
+        // person.sayHi() // 打印出「你好，我叫 frank」
+
+        // let person2 = new Person('jack', 19)
+        // person2.name === 'jack' // true
+        // person2.age === 19 // true
+        // person2.sayHi() // 打印出「你好，我叫 jack」
+
+
+
+        // let squareList = []
+        // let widthList = [5, 6, 5, 6, 5, 6, 5, 6, 5, 6, 5, 6]
+        // function Square(width) {
+        //     this.width = width
+        // }
+        // Square.prototype.getArea = function () {
+        //     return this.width * this.width
+        // }
+        // Square.prototype.getLength = function () {
+        //     return this.width * 4
+        // }
+        // for (let i = 0; i < 12; i++) {
+        //     squareList[i] = new Square(widthList[i])
+        //     console.log(squareList[i].getArea()+','+squareList[i].getLength())
+        //     // console.log(squareList[i].getLength())
+        // }
+
+
+
+
+        let arr = [0, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 6]
+    let arr2 = arr.map(item=>{return {0:'周日', 1:'周一', 2:'周二', 2:'周二', 3:'周三', 3:'周三', 3:'周三', 4:'周四', 4:'周四', 4:'周四', 4:'周四',6:'周六'}[item]})
+        console.log(arr2) // ['周日', '周一', '周二', '周二', '周三', '周三', '周三', '周四', '周四', '周四', '周四','周六']
+
+        let scores = [95, 91, 59, 55, 42, 82, 72, 85, 67, 66, 55, 91]
+        let scores2 = scores.filter(item => item > 60 ? true : false)
+        console.log(scores2) //  [95,91,82,72,85,67,66, 91]
+
+        let scores1 = [95, 91, 59, 55, 42, 82, 72, 85, 67, 66, 55, 91]
+        let sum = scores.reduce((sum, n) => {
+            return n%2===0?sum:sum+n
+        }, 0)
+        console.log(sum) // 奇数之和：598 
+    </script>
+
+
+
+</body>
+
+</html>
