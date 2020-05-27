@@ -49,19 +49,65 @@
 
 
 
+        //     let arr = [0, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 6]
+        // let arr2 = arr.map(item=>{return {0:'周日', 1:'周一', 2:'周二', 2:'周二', 3:'周三', 3:'周三', 3:'周三', 4:'周四', 4:'周四', 4:'周四', 4:'周四',6:'周六'}[item]})
+        //     console.log(arr2) // ['周日', '周一', '周二', '周二', '周三', '周三', '周三', '周四', '周四', '周四', '周四','周六']
+
+        //     let scores = [95, 91, 59, 55, 42, 82, 72, 85, 67, 66, 55, 91]  
+        //     let scores2 = scores.filter(item => item > 60 ? true : false)
+        //     console.log(scores2) //  [95,91,82,72,85,67,66, 91]
+
+        //     let scores1 = [95, 91, 59, 55, 42, 82, 72, 85, 67, 66, 55, 91]
+        //     let sum = scores.reduce((sum, n) => {
+        //         return n%2===0?sum:sum+n
+        //     }, 0)
+        //     console.log(sum) // 奇数之和：598 
+        function Person(name, age) {
+            this.name = name
+            this.age = age
+        }
+        Person.prototype.sayHi = function () {
+            console.log('你好，我叫' + this.name)
+        }
+        let person = new Person('jack', 18)
+        person.sayHi()
+
+
+        class Person1{
+            constructor(name,age){
+                this.name=name
+                this.age=age
+            }
+            sayHi1(){
+            console.log("你好，我叫"+this.name)
+            }
+
+        }
+        let person1 = new Person1('yang',19)
+        person1.sayHi1()
+        
         let arr = [0, 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 6]
-    let arr2 = arr.map(item=>{return {0:'周日', 1:'周一', 2:'周二', 2:'周二', 3:'周三', 3:'周三', 3:'周三', 4:'周四', 4:'周四', 4:'周四', 4:'周四',6:'周六'}[item]})
-        console.log(arr2) // ['周日', '周一', '周二', '周二', '周三', '周三', '周三', '周四', '周四', '周四', '周四','周六']
+        let arr2 = arr.map(item=>{return {0:'周日', 1:'周一', 2:'周二', 2:'周二', 3:'周三', 3:'周三', 3:'周三', 4:'周四', 4:'周四', 4:'周四', 4:'周四',6:'周六'}[item]})
+        console.log(arr2)
+let num1 = 5
+let str1='hhhh'
+let  obj={
+0:1,1:2,2:3,3:4,4:5,5:6,length:6
+}
+let arr1=[1,2,3,4,5,6,7]
+let obj2=Array.from(obj)
 
-        let scores = [95, 91, 59, 55, 42, 82, 72, 85, 67, 66, 55, 91]
-        let scores2 = scores.filter(item => item > 60 ? true : false)
-        console.log(scores2) //  [95,91,82,72,85,67,66, 91]
+let f=new Function('a','b','return a+b')
+function f1(a,b){
+return a+b
+}
 
-        let scores1 = [95, 91, 59, 55, 42, 82, 72, 85, 67, 66, 55, 91]
-        let sum = scores.reduce((sum, n) => {
-            return n%2===0?sum:sum+n
-        }, 0)
-        console.log(sum) // 奇数之和：598 
+f3=x=>x*x
+f4=(x,y)=>{
+    x1=x*y
+    return x1
+}
+console.log(f4(3,6))
     </script>
 
 
