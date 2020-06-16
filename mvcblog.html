@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>浅析 MVC</title>
+</head>
+<body>
+    <pre>
+       1 MVC 三个对象
+
+       MVC模式（Model–view–controller）
+
+       const m = {
+        data: {},
+        create() {},
+        delete() {},
+        update() {}
+    }
+    
+    const v = {
+        el: null,
+        html: `代码`
+        ,
+        init(container) {
+            v.el = $(container)
+        },
+        render(n) { }
+    }
+    
+    const c = {
+        init(container) {})
+        }, 
+        events: {}, 
+        add() {},
+        minus() {},
+        mul() {},
+        div() {},
+        autoBindEvents() {}
+        }
+    
+    }
+
+
+    2 EventBus 有哪些 API，是做什么用的
+
+    当一个事件执行，eventBus 触发 m:updated eventBus.trigger('m:updated')
+
+    eventBus 监听 m:updated，当 m:updated 触发时，执行一些内容
+
+    eventBus.on('m:updated',()=>{
+     v.render(m.data.n)
+    })
+
+
+
+    3 表驱动编程是做什么的
+
+    表驱动方法编程（Table-Driven Methods）是一种编程模式,
+    适用场景:消除代码中频繁的if else或switch case的逻辑结构代码,使代码更加直白
+
+
+    4  我是如何理解模块化的
+    
+    将一个复杂的程序依据一定的规则（规范）封装成几个块（文件）并进行组合。
+    模块的内部数据的实现是私有的，只是向外部暴露一些接口（方法）与外部其他模块通信。
+    这则就是模块化。模块化可以降低代码耦合度，减少重复代码，提高代码重用性，并且在项目结构上更加清晰，便于维护。
+    </pre>
+</body>
+</html>
