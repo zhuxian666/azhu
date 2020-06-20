@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue 的数据响应式</title>
+</head>
+<body>
+    <pre>
+        学习 Vue 的数据响应式
+前言
+
+响应式的意思就是能够对外界的刺激或变化做出反应。
+
+这句话放到 Vue 里的意思就是，Vue 能够对数据的变化作出响应。
+Vue 的 data 是响应式的
+
+一个简单的例子：
+
+const vm = new Vue({
+    data: {
+        n: 0
+    }
+})
+
+// vm.n 是响应式的
+// 如果修改了 n 的值，那么视图中的 n 就会响应我的修改
+复制代码
+
+Vue 是通过 Object.defineProperty 来实现数据响应式的。
+
+当把一个普通的 JavaScript 对象传入 Vue 实例作为 data 选项的时候，Vue 就会遍历这个对象的所有属性，把这些属性全部转为 getter/setter ，通过 getter/setter 来对属性的读写进行监控。
+
+这样在 Vue 的内部，就能够跟踪它们，获取到它们被访问和修改时的信息。
+Object.defineProperty 的问题
+
+因为使用 Object.defineProperty(obj, 'n', {...}) 的缘故，property 必须在 data n对象上存在才能让 Vue 将它转换为响应式的，也就说 n 要事先声明，不然 Vue 是无法监听 obj.n 的。
+
+const vm = new Vue({
+  data: {
+      a: 1
+  }
+})
+
+// vm.a 是响应式的
+
+vm.n = 2
+// vm.n 是非响应式的
+复制代码
+
+解决这个问题的办法有两个：
+
+    先在 data 里声明好 key，后面先不加属性；
+    使用 Vue.set 或者 this.$set
+
+Vue.set(vm.someObject, 'b', 2)
+
+this.$set(this.object, 'b', 2)
+复制代码
+
+data 中存在数组
+
+JS 里的数组也是对象的一种，数组下标其实就是 key 值。
+
+数组的下标 key 是无法提前声明的，因此没办法使用第一种解决办法。
+
+当然能够使用 Vue.set 的方法来修改数组。
+
+const vm = new Vue({
+  data: {
+    items: ['a', 'b', 'c']
+  }
+})
+
+// Vue.set
+Vue.set(vm.items, indexOfItem, newValue)
+复制代码
+
+但是每次修改数组都要用 Vue.set 就会有点麻烦了，特别是要修改多个值的时候。
+
+因此 Vue 提供了一套针对数组的变更方法，使用这些方法也能够触发视图更新。这些方法包括：
+
+    push()
+    pop()
+    shift()
+    unshift()
+    splice()
+    sort()
+    reverse()
+
+这七个属于原本数组对象的 API 都会被 Vue 篡改，调用后会更新视图。
+    </pre>
+</body>
+</html>
